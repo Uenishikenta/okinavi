@@ -1,0 +1,254 @@
+<%= stylesheet_link_tag 'inn_index' ,:media => "all"%>
+
+<header>
+      <h1>Okinavi</h1>
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "旅館", hotels_path(category: "inn") %></li>
+        <li><%= link_to "観光", hotels_path(category: "sightseen") %></li>
+        <li><%= link_to "グルメ", hotels_path(category: "gurmet") %></li>
+        <li>
+          <a  class="menuButton" id="menuButton">
+            <div></div>
+            <div></div>
+            <div></div>
+          </a>
+        </li>
+      </ul>
+      
+      </div>
+</header>
+
+<nav id="nav">
+        <ul>
+          <li><%= link_to "投稿", new_hotel_path %></li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to "My page", user_path(current_user.id) %>
+            <% end %>
+          </li>
+          <li><%= button_to 'Log out',destroy_user_session_path, method: :delete %></li>
+        </ul>
+</nav>
+
+<div class="mask" id="mask"></div>
+
+ <div class="box">
+  <div class="box_main">
+
+    <div class="card">
+        <div class="inn_title">
+          <h1>投稿一覧</h1>
+          <h3>旅館、観光、グルメの皆様の投稿を閲覧できます。</h3><br>
+          <h3>いいねやコメントもぜひお願いいたします。</h3>
+        </div>
+    </div>
+  
+    <div class="pg">
+        <%= page_entries_info @hotels %>
+        <%= paginate @hotels %>
+    </div>
+
+    <div class="tweets-container">
+      <% @hotels.each do |t| %>
+          <% if t.category=="inn" %>
+            <div class="tweet">
+              <div class="tweet_left">
+                <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                <h2>「<%= t.title %>」</h2>
+                <div class="image">
+                  <%= image_tag t.image_url, size: "500x400" if t.image? %>
+                </div>
+              </div>
+
+              <div class="tweet_right">
+                <div class="create_time"><%= t.created_at %></div>
+                <div class="star_content">
+                  <p>総合評価 : <%= t.star%>点</p>
+                  <div id="star-rate<%= t.id%>"></div>    
+                      
+                        <script>
+                        $('#star-rate<%= t.id%>').raty({
+                          size      : 40,
+                          starOff   : '<%= asset_path('star-off.png') %>',
+                          starOn    : '<%= asset_path('star-on.png') %>',
+                          half      : false,
+                          readOnly: true,
+                          score: <%= t.star %>,
+                        });
+                      </script>
+                </div>
+
+
+                <div class="contents"><%= t.body %></div>
+                
+
+                <div class="user_edit">
+                  <div>
+                    <% if user_signed_in? %>
+                      <% if current_user.already_liked?(t) %>
+                        <%= button_to hotel_like_path(id: t.id, hotel_id: t.id), method: :delete do %>
+                          <i class="fas fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                      <% else %>
+                        <%= button_to hotel_likes_path(id: t.id, hotel_id: t.id), method: :post do %>
+                          <i class="far fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <i class="far fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  </div>
+                  <div><i class="far fa-comments"><%= link_to "コメント", hotel_path(t.id) %></i></div>
+                  <% if user_signed_in? && current_user.id == t.user_id %>
+                    <div><%= link_to "編集する", edit_hotel_path(t.id) %></div>
+                    <div><%= button_to "削除する", hotel_path(t.id), method: :delete %></div>
+                  <% end %>
+                </div>
+              </div>            
+            </div>
+
+          
+          <% elsif t.category=="sightseen" %>
+            <div class="tweet">
+              <div class="tweet_left">
+                <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                <h2>「<%= t.title %>」</h2>
+                <div class="image">
+                  <%= image_tag t.image_url, size: "500x400" if t.image? %>
+                </div>
+              </div>
+
+              <div class="tweet_right">
+                <div class="create_time"><%= t.created_at %></div>
+                <div class="star_content">
+                  <p>総合評価 : <%= t.star%>点</p>
+                  <div id="star-rate<%= t.id%>"></div>    
+                      
+                        <script>
+                        $('#star-rate<%= t.id%>').raty({
+                          size      : 40,
+                          starOff   : '<%= asset_path('star-off.png') %>',
+                          starOn    : '<%= asset_path('star-on.png') %>',
+                          half      : false,
+                          readOnly: true,
+                          score: <%= t.star %>,
+                        });
+                      </script>
+                </div>
+
+
+                <div class="contents"><%= t.body %></div>
+                
+
+                <div class="user_edit">
+                  <div>
+                    <% if user_signed_in? %>
+                      <% if current_user.already_liked?(t) %>
+                        <%= button_to hotel_like_path(id: t.id, hotel_id: t.id), method: :delete do %>
+                          <i class="fas fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                      <% else %>
+                        <%= button_to hotel_likes_path(id: t.id, hotel_id: t.id), method: :post do %>
+                          <i class="far fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <i class="far fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  </div>
+                  <div><i class="far fa-comments"><%= link_to "コメント", hotel_path(t.id) %></i></div>
+                  <% if user_signed_in? && current_user.id == t.user_id %>
+                    <div><%= link_to "編集する", edit_hotel_path(t.id) %></div>
+                    <div><%= button_to "削除する", hotel_path(t.id), method: :delete %></div>
+                  <% end %>
+                </div>
+              </div>            
+            </div>
+
+          <% elsif t.category=="gurmet" %>
+            <div class="tweet">
+              <div class="tweet_left">
+                <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                <h2>「<%= t.title %>」</h2>
+                <div class="image">
+                  <%= image_tag t.image_url, size: "500x400" if t.image? %>
+                </div>
+              </div>
+
+              <div class="tweet_right">
+                <div class="create_time"><%= t.created_at %></div>
+                <div class="star_content">
+                  <p>総合評価 : <%= t.star%>点</p>
+                  <div id="star-rate<%= t.id%>"></div>    
+                      
+                        <script>
+                        $('#star-rate<%= t.id%>').raty({
+                          size      : 40,
+                          starOff   : '<%= asset_path('star-off.png') %>',
+                          starOn    : '<%= asset_path('star-on.png') %>',
+                          half      : false,
+                          readOnly: true,
+                          score: <%= t.star %>,
+                        });
+                      </script>
+                </div>
+
+
+                <div class="contents"><%= t.body %></div>
+                
+
+                <div class="user_edit">
+                  <div>
+                    <% if user_signed_in? %>
+                      <% if current_user.already_liked?(t) %>
+                        <%= button_to hotel_like_path(id: t.id, hotel_id: t.id), method: :delete do %>
+                          <i class="fas fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                      <% else %>
+                        <%= button_to hotel_likes_path(id: t.id, hotel_id: t.id), method: :post do %>
+                          <i class="far fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <i class="far fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  </div>
+                  <div><i class="far fa-comments"><%= link_to "コメント", hotel_path(t.id) %></i></div>
+                  <% if user_signed_in? && current_user.id == t.user_id %>
+                    <div><%= link_to "編集する", edit_hotel_path(t.id) %></div>
+                    <div><%= button_to "削除する", hotel_path(t.id), method: :delete %></div>
+                  <% end %>
+                </div>
+              </div>            
+            </div>
+          <% end %>
+      <% end %>
+
+    </div>
+    
+    <footer>
+          <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+ </div>
+    
+</div>
+
+<script>
+  
+document.addEventListener('DOMContentLoaded',function() {
+    document.getElementById("menuButton").addEventListener("click", function() {
+        this.classList.toggle("active");
+        document.getElementById('nav').classList.toggle('active');
+        document.getElementById('mask').classList.toggle('active');
+    })
+});
+
+document.getElementById('mask').addEventListener('click', function() {
+    this.classList.remove('active')
+    document.getElementById('nav').classList.remove('active')
+    document.getElementById('menuButton').classList.remove('active')
+})
+
+</script>
+

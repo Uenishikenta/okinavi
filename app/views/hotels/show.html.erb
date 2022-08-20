@@ -1,0 +1,131 @@
+<%= stylesheet_link_tag 'inn_comment' ,:media => "all"%>
+
+<div class="contents_all">
+
+      <div class="edit_title">
+        <h1>Okinaviコメント</h1>
+        <h3>※口コミを投稿,評価,一覧することができます。</h3>
+      </div>
+
+    <div class="hotel_edit">
+
+        <div class="hotel_edit_left">
+
+              <div class="edit_t"><%= @hotel.title %></div>
+            <div class="good">
+                <% if user_signed_in? %>
+                  <% if current_user.already_liked?(@hotel) %>
+                      <%= button_to hotel_like_path(@hotel), method: :delete do %>
+                        <i class="fas fa-heart"></i><%= @hotel.likes.count %>
+                      <% end %>
+                  <% else %>
+                    <%= button_to hotel_likes_path(@hotel), method: :post do %>
+                      <i class="far fa-heart"></i><%= @hotel.likes.count %>
+                  <% end %>
+                <% end %>
+                <% else %>
+                  <i class="far fa-heart"></i><%= @hotel.likes.count %>
+                <% end %>
+            </div>
+          
+          <div>
+                          <div id='map'></div>
+
+                            <style>
+                            #map {
+                              height: 400px;
+                              width: 500px;
+                            }
+                            </style>
+
+                          <script>
+                        //初期マップの設定
+                          let map
+                          let marker
+                          function initMap(){
+                            geocoder = new google.maps.Geocoder()
+
+                            map = new google.maps.Map(document.getElementById('map'), {
+                              center:  {lat: <%= @hotel.latitude %>, lng: <%= @hotel.longitude %>},
+                              zoom: 15,
+                            });
+
+                            marker = new google.maps.Marker({
+                              position:  {lat: <%= @hotel.latitude %>, lng: <%= @hotel.longitude %>},
+                              map: map
+                            });
+                          }
+                          </script>
+            </div>
+
+        </div>
+
+        <div class="hotel_edit_right">
+            <% if user_signed_in? %>
+            <%= form_with(model: [@hotel, @comment], local: true) do |f| %>
+              <%= f.text_area :content %>
+              <%= button_tag type: "submit" do %>
+                <div class="form-group row" id="star">
+                  <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+                  <%= f.hidden_field :star, id: :review_star %>
+              </div>
+              <% end %>
+            <% end %>
+          <% end %>
+          <div class="right_action">
+            <%= link_to "Topに戻る", hotels_path(category: "inn") %>
+          </div>
+        </div>
+    </div>
+    
+
+    <div class="comment_all">
+      <div class="comment_title">
+        <h1>コメント一覧</h1>
+      </div>
+      
+     
+          <% @comments.each do |c| %>
+            <div class="user_comment">
+              <div class="user_comment_left">
+                    <%= c.user.name unless c.user.blank? %>
+                  <p>評価 :<%= c.star%>点</p>
+                  <div id="star-rate<%= c.id%>"></div>   
+              </div>
+
+              <div class="user_comment_right">
+                  <div><%= c.content %></div>
+              </div>
+              
+            </div>
+
+              <script>
+              $('#star-rate<%= c.id%>').raty({
+                size      : 36,
+                starOff   : '<%= asset_path('star-off.png') %>',
+                starOn    : '<%= asset_path('star-on.png') %>',
+                half      : false,
+                readOnly: true,
+                score: <%= c.star %>,
+              });
+            </script>
+          <% end %>
+      
+    </div>
+
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf3PkYlB5z9CWbpBXy_A3ozcezda7eUQE&callback=initMap" async defer></script>
+
+
+<script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+
+        scoreName: 'comment[star]',
+        half: false,
+      });
+      </script>  

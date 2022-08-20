@@ -1,0 +1,123 @@
+<%= stylesheet_link_tag 'My_pro', :media => "all" %>
+
+
+<div class="card">
+
+  <div class="login-element">
+
+    <div class="login-title">
+      <h2>My page!</h2>
+    </div>
+  
+      <div class="field">
+        <%= image_tag @user.image_url, size: "400x300" if @user.image? %>
+      </div>
+
+      <div class="field">
+        <p>名前 : <%= @user.name %></p>
+        <p>メールアドレス : <%= @user.email %></p>
+        <p>プロフィール : <%= @user.profile %></p>
+      </div>
+
+        <div class="option">
+            <% if current_user.id == @user.id %>
+              <%= link_to "編集する", edit_user_registration_path %>
+            <% end %>
+        
+            <%= link_to "Topに戻る", hotels_path(category: "inn") %>
+        </div>
+        
+  </div>
+</div>
+
+
+
+<div class="tweets-container">
+    <h1>投稿一覧</h1>
+      <% @user.hotels.each do |t| %>
+        <div class="tweet">
+          <div class="tweet_left">
+            <h2>「<%= t.title %>」</h2>
+            <div class="image">
+              <%= image_tag t.image_url, size: "500x400" if t.image? %>
+            </div>
+          </div>
+
+          <div class="tweet_right">
+            <div class="create_time"><%= t.created_at %></div>
+            
+            <div class="contents"><%= t.body %></div>
+            
+            <div class="user_edit">
+              <div>
+                <% if user_signed_in? %>
+                  <% if current_user.already_liked?(t) %>
+                    <%= button_to hotel_like_path(id: t.id, hotel_id: t.id), method: :delete do %>
+                      <i class="fas fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  <% else %>
+                    <%= button_to hotel_likes_path(id: t.id, hotel_id: t.id), method: :post do %>
+                      <i class="far fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <i class="far fa-heart"></i><%= t.likes.count %>
+                <% end %>
+              </div>
+              <div><i class="far fa-comments"><%= link_to "コメント", hotel_path(t.id) %></i></div>
+              <% if user_signed_in? && current_user.id == t.user_id %>
+                <div><%= link_to "編集する", edit_hotel_path(t.id) %></div>
+                <div><%= button_to "削除する", hotel_path(t.id), method: :delete %></div>
+              <% end %>
+            </div>
+          </div>            
+        </div>
+      <% end %>
+</div>
+
+
+<div class="tweets-container">
+      <h1>いいね一覧</h1>
+      <%  @user.liked_hotels.each do |t| %>
+        <div class="tweet">
+          <div class="tweet_left">
+            
+            <h2>「<%= t.title %>」</h2>
+            <div class="image">
+              <%= image_tag t.image_url, size: "500x400" if t.image? %>
+            </div>
+          </div>
+
+          <div class="tweet_right">
+            <div class="create_time"><%= t.created_at %></div>
+            
+            <div class="contents"><%= t.body %></div>
+            
+
+            <div class="user_edit">
+              <div>
+                <% if user_signed_in? %>
+                  <% if current_user.already_liked?(t) %>
+                    <%= button_to hotel_like_path(id: t.id, hotel_id: t.id), method: :delete do %>
+                      <i class="fas fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  <% else %>
+                    <%= button_to hotel_likes_path(id: t.id, hotel_id: t.id), method: :post do %>
+                      <i class="far fa-heart"></i><%= t.likes.count %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <i class="far fa-heart"></i><%= t.likes.count %>
+                <% end %>
+              </div>
+              <div><i class="far fa-comments"><%= link_to "コメント", hotel_path(t.id) %></i></div>
+              <% if user_signed_in? && current_user.id == t.user_id %>
+                <div><%= link_to "編集する", edit_hotel_path(t.id) %></div>
+                <div><%= button_to "削除する", hotel_path(t.id), method: :delete %></div>
+              <% end %>
+            </div>
+          </div>            
+        </div>
+      <% end %>
+</div>
+

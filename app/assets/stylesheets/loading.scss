@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-flow: column;
+    font-family: 'Cabin Condensed', sans-serif;
+  }
+
+  svg{font-weight:bold;max-width:400px;height:auto;}
+
+  .login_action a {
+    /* インラインにmarginを利かすためにblockにしている。 */
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 15px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+    text-decoration: none;
+    /* 文字の太さ */
+    font-weight: 500;
+    /* x,y,ブラー,影の色 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-left: 30px;
+}
+
+.login_action a:hover{
+  transform: scale(1.2);
+}
+  
+  .title{
+    color: azure;
+    margin-bottom: 500px;
+    z-index: 10;
+  }
+  
+  .content{
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    visibility: hidden;
+    transition: all 0.5s;
+    transition-delay: 1s;
+    margin-bottom: 500px;
+    z-index: 10;
+  }
+  
+  .whiskey-loader {
+    position: relative;
+    z-index: 10;
+  }
+  .whiskey-loader:before, .whiskey-loader:after {
+    -webkit-animation: cube-float 2s linear infinite;
+            animation: cube-float 2s linear infinite;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 2px;
+    content: "";
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    top: 28px;
+    left: 35px;
+    will-change: transform;
+    z-index: -1;
+  }
+  .whiskey-loader:after {
+    -webkit-animation-name: cube-float--alt;
+            animation-name: cube-float--alt;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    top: 34px;
+    left: 16px;
+    transform: rotate(30deg);
+  }
+  
+  @-webkit-keyframes cube-float {
+    0% {
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      transform: none;
+    }
+    25% {
+      transform: rotate(-5deg) translate3d(-1px, 2px, 0);
+    }
+    50% {
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+      transform: rotate(0deg) translate3d(-1px, 6px, 0);
+    }
+    80% {
+      transform: rotate(5deg) translate3d(0, 2px, 0);
+    }
+    100% {
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      transform: none;
+    }
+  }
+  
+  @keyframes cube-float {
+    0% {
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      transform: none;
+    }
+    25% {
+      transform: rotate(-5deg) translate3d(-1px, 2px, 0);
+    }
+    50% {
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+      transform: rotate(0deg) translate3d(-1px, 6px, 0);
+    }
+    80% {
+      transform: rotate(5deg) translate3d(0, 2px, 0);
+    }
+    100% {
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      transform: none;
+    }
+  }
+  @-webkit-keyframes cube-float--alt {
+    50% {
+      -webkit-animation-timing-function: ease;
+              animation-timing-function: ease;
+      transform: rotate(20deg) translate3d(-2px, -4px, 0);
+    }
+  }
+  @keyframes cube-float--alt {
+    50% {
+      -webkit-animation-timing-function: ease;
+              animation-timing-function: ease;
+      transform: rotate(20deg) translate3d(-2px, -4px, 0);
+    }
+  }/*# sourceMappingURL=loding.css.map */
+  
+  .loaded{
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  
+  .non-title{
+    opacity: 0;
+    transition: all 0.5s;
+  }

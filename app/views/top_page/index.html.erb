@@ -1,0 +1,157 @@
+<%= stylesheet_link_tag 'header_footer' ,:media => "all"%>
+
+
+
+<header>
+      <h1>Okinavi</h1>
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "旅館", hotels_path(category: "inn") %></li>
+        <li><%= link_to "観光", hotels_path(category: "sightseen") %></li>
+        <li><%= link_to "グルメ", hotels_path(category: "gurmet") %></li>
+        <li>
+          <a  class="menuButton" id="menuButton">
+            <div></div>
+            <div></div>
+            <div></div>
+          </a>
+        </li>
+      </ul>
+      
+      </div>
+</header>
+
+
+
+<nav id="nav">
+        <ul>
+          <li><%= link_to "投稿", new_hotel_path %></li>
+          <li><%= link_to "My page",user_path(current_user.id) %></li>
+          <li><%= button_to 'Log out',destroy_user_session_path, method: :delete %></li>
+        </ul>
+</nav>
+
+<div class="mask" id="mask"></div>
+
+ <div class="box">
+  <div class="box_main">
+      <div class="contents">
+            <section id="section1">
+                <li class="animationTarget">
+                    <div class="images page1"></div>
+                    <div class="contentsText">
+                        <h2>hotel</h2>
+                        <p>旅館の投稿サイトをご覧ください。
+                          <br>
+                            旅館の魅力を投稿してください！
+                          <br>
+                            写真は「アラマハイナ コンドホテル」
+                          <br>
+                            沖縄リゾートホテルの一角です。
+                        </p>
+                    </div>
+                </li>
+            </section>
+
+            <section id="section2">
+                <li class="animationTarget">
+                    <div class="images page2"></div>
+                    <div class="contentsText">
+                        <h2>sightseeing</h2>
+                        <p>観光の投稿サイトをご覧ください。
+                            <br>
+                            アクティブ・自然・ショッピングなど
+                            <br>
+                            たくさんの投稿、お待ちしています！
+                            <br>
+                            写真は「首里城」
+                            <br>
+                            沖縄を代表とする歴史的建造物です。
+                        </p>
+                    </div>
+                </li>
+            </section>
+
+            <section id="section3">
+                <li class="animationTarget">
+                    <div class="images page3"></div>
+                    <div class="contentsText">
+                        <h2>gurmet</h2>
+                        <p>グルメの投稿サイトをご覧ください。
+                            <br>
+                            沖縄に行ったら絶対行きたい、食べてみたい
+                            <br>
+                            沖縄ならではの魅力と特色を伝えてください！
+                            <br>
+                            写真は「海ぶどう丼」
+                            <br>
+                            恩納村というお店の看板メニューです！
+                        </p>
+                    </div>
+                </li>
+            </section>
+
+            <section id="section4">
+                <li class="animationTarget">
+                    <div class="images page4"></div>
+                    <div class="contentsText">
+                        <h2>let's post!</h2>
+                        <p>投稿やレビューを見る事が出来ます。
+                            <br>
+                            投稿の閲覧は「旅館」「観光」「グルメ」
+                            <br>
+                            から選びコメント、いいねお願いします！
+                            <br>
+                            投稿の際、白いボックスのメニューバー
+                            <br>
+                            から投稿してください！
+                            <br>
+                            皆さんの投稿お待ちしています。
+                            
+                        </p>
+                    </div>
+                </li>
+            </section>
+        </div>
+   
+    <footer>
+          <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+ </div>
+</div>
+
+<script>
+  
+document.addEventListener('DOMContentLoaded',function() {
+    document.getElementById("menuButton").addEventListener("click", function() {
+        this.classList.toggle("active");
+        document.getElementById('nav').classList.toggle('active');
+        document.getElementById('mask').classList.toggle('active');
+    })
+});
+
+document.getElementById('mask').addEventListener('click', function() {
+    this.classList.remove('active')
+    document.getElementById('nav').classList.remove('active')
+    document.getElementById('menuButton').classList.remove('active')
+})
+
+const targetElement = document.querySelectorAll(".animationTarget");
+document.addEventListener("scroll",function(){
+    for(let i =0; i< targetElement.length; i++) {
+        const getElementDistance = targetElement[i].getBoundingClientRect().top + targetElement[i].clientHeight * .5
+        if (window.innerHeight > getElementDistance) {
+            targetElement[i].classList.add("show");
+        }
+    }
+})
+</script>
+
+
+
+
+
+
+
+
+

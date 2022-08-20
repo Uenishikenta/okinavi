@@ -1,0 +1,91 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6000px;
+    background: #333;
+    color: #fff;
+  }
+
+  h1{
+    text-align: center;
+  }
+  
+  .card {
+    margin-right: 70px;
+    width: 700px;
+    height: 600px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1); /* 真っ白にして透明度を90%にしている */
+    /* はみ出した部分を隠す今回は角を丸くしている */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    /* cardの後ろの背景をぼかす */
+    backdrop-filter: blur(5px);
+    /* 背景より前にするために */
+    z-index: 1;
+  }
+  
+  .field{
+      margin-top: 10px;
+  }
+  .login-element {
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-flow: column;
+  }
+  
+  .login-title{
+      margin-bottom: 10px;
+  }
+
+  .option{
+    display: inline-block;
+    flex-flow: row;
+  }
+
+  .option :nth-of-type(2){
+    margin-left: 30px;
+  }
+
+  
+  .card a {
+      /* インラインにmarginを利かすためにblockにしている。 */
+      display: inline-block;
+      padding: 8px 20px;
+      margin-top: 15px;
+      margin-top: 30px;
+      background-color: #fff;
+      color: #000;
+      border-radius: 20px;
+      text-decoration: none;
+      /* 文字の太さ */
+      font-weight: 500;
+      /* x,y,ブラー,影の色 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      
+  }
+  
+  .card a:hover{
+      transform: scale(1.2);
+  }
+  
+  .actions :hover{
+      transform: scale(1.2);
+  }

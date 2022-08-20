@@ -1,0 +1,7 @@
+get 'hotels/index' => 'hotels#index'
+  get 'hotels/new' => 'hotels#new'
+  post 'hotels' => 'hotels#create'
+  get 'hotels/:id' => 'hotels#show',as:'hotel'
+  patch 'hotels/:id' => 'hotels#update'
+  delete 'hotels/:id' => 'hotels#destroy'
+  get 'hotels/:id/edit' => 'hotels#edit', as:'edit_hotel'
