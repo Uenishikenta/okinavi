@@ -32,10 +32,10 @@
     font-size: 80px;
     font-family: serif;
     color: rgb(200, 229, 255);
-    position: relative;
     top: 0;
     text-align: center;
 }
+
 
   .slider {
    
@@ -62,7 +62,10 @@
     float: left;
     text-align: center;
     line-height: 500px;
-    
+  }
+
+  .hako{
+    position: relative;
   }
 
 
