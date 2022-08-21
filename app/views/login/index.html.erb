@@ -83,9 +83,18 @@ window.onload = function(){
     <div class="slider">
             <div class="slider-inner">
 
-                <div class="swiper-slide slide1"><p class="first">旅館</p></div>
-                <div class="swiper-slide slide2"><p class="first">観光</p></div>
-                <div class="swiper-slide slide3"><p class="first">グルメ</p></div>
+                <div class="swiper-slide slide1">
+                  <%= image_tag 'hotel.jpg', :size => '500x400' %>
+                  <p class="first">旅館</p>
+                </div>
+                <div class="swiper-slide slide2">
+                  <%= image_tag 'drive.jpg', :size => '500x400' %>
+                  <p class="first">観光</p>
+                </div>
+                <div class="swiper-slide slide3">
+                <%= image_tag 'gourmet.jpg', :size => '500x400' %>
+                  <p class="first">グルメ</p>
+                </div>
                     
             </div>
     </div>
