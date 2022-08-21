@@ -32,6 +32,8 @@
     font-size: 80px;
     font-family: serif;
     color: rgb(200, 229, 255);
+    position: relative;
+    text-align: center;
 }
 
   .slider {
@@ -61,6 +63,7 @@
     line-height: 500px;
     
   }
+
 
 
   @keyframes slider {
