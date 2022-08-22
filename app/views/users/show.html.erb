@@ -11,7 +11,8 @@
     </div>
   
       <div class="field">
-        <%= image_tag @user.image_url, size: "400x300" if @user.image? %>
+        
+          <%= image_tag @user.image_url, class: "rounded-circle", size: "300x300" if @user.image? %>
       </div>
 
       <div class="field">

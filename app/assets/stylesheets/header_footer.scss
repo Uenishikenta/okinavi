@@ -28,7 +28,9 @@
   header {
     
     width: 100%;
-    background-color: #00acee;
+    background: linear-gradient(to right, #5510f7, #71e8fd);
+  background: -moz-linear-gradient(left, #5510f7, #71e8fd);
+  background: -webkit-linear-gradient(left, #5510f7, #71e8fd);
     height: 100px;
     font-weight: bold;
     padding-top: 20px;//触らない
