@@ -46,22 +46,6 @@ ActiveRecord::Schema.define(version: 2022_08_15_115418) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
-    t.text "text"
-  end
-
-  create_table "spots", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "address"
-    t.float "latitud"
-    t.float "longitude"
-    t.float "latitd"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -70,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_08_15_115418) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "latitude"
     t.string "name"
     t.text "profile"
     t.string "image"
