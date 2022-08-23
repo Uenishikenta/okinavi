@@ -117,7 +117,10 @@
           <% elsif t.category=="sightseen" %>
             <div class="tweet">
               <div class="tweet_left">
-                <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                <div class="user_inf">
+                  <%= image_tag t.user.image_url, class: "round", size: "80x80" if t.user.image? %>
+                  <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                </div>
                 <h2>「<%= t.title %>」</h2>
                 <div class="image">
                   <%= image_tag t.image_url, size: "500x400" if t.image? %>
@@ -174,7 +177,10 @@
           <% elsif t.category=="gurmet" %>
             <div class="tweet">
               <div class="tweet_left">
-                <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                <div class="user_inf">
+                  <%= image_tag t.user.image_url, class: "round", size: "80x80" if t.user.image? %>
+                  <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                </div>
                 <h2>「<%= t.title %>」</h2>
                 <div class="image">
                   <%= image_tag t.image_url, size: "500x400" if t.image? %>
