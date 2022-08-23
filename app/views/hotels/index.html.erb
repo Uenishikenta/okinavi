@@ -20,6 +20,8 @@
 </header>
 
 <nav id="nav">
+
+
         <ul>
           <li><%= link_to "投稿", new_hotel_path %></li>
           <li>
@@ -54,7 +56,10 @@
           <% if t.category=="inn" %>
             <div class="tweet">
               <div class="tweet_left">
-                <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                <div class="user_inf">
+                  <%= image_tag t.user.image_url, class: "round", size: "80x80" if t.user.image? %>
+                  <h3><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></h3>
+                </div>
                 <h2>「<%= t.title %>」</h2>
                 <div class="image">
                   <%= image_tag t.image_url, size: "500x400" if t.image? %>
