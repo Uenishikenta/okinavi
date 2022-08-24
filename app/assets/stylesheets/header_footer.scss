@@ -302,37 +302,3 @@ section {
     justify-content: center;
     
   }
-
-  @media (max-width: 600px){
-   
-    .card {
-      width: 500px;
-    }
-
-    .images {
-     
-      width: 200px;
-      height: 200px;
-    }
-
-    .contents p{
-      max-width: 140px;
-    }
-
-    .contents h2{
-      font-size: 50px;
-    }
-
-    .box_main{
-      
-      width: 500px;
-      
-    }
-
-    header .title_big2{
-      width: 200px;
-      font-size:25px;
-      
-    }
-
-  }
