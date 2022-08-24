@@ -24,27 +24,6 @@
     text-align: center;
   }
   
-  .card {
-    margin-right: 70px;
-    margin-bottom: 50px;
-    margin-left: 170px;
-    width: 700px;
-    height: 600px;
-    box-shadow: 0px 15px 20px 0px rgba(255,255,255,.2);
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1); /* 真っ白にして透明度を90%にしている */
-  /* はみ出した部分を隠す今回は角を丸くしている */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    /* cardの後ろの背景をぼかす */
-    backdrop-filter: blur(5px);
-    /* 背景より前にするために */
-    z-index: 1;
-  }
 
 .rounded-circle{
   border-radius: 50%;
@@ -70,6 +49,7 @@
   
   .login-title{
       margin-bottom: 10px;
+      font-size: 30px;
   }
 
   .option{
@@ -106,3 +86,518 @@
   .actions :hover{
       transform: scale(1.2);
   }
+
+  .card {
+    position: relative;
+    margin-right: 70px;
+    margin-bottom: 50px;
+    margin-left: 170px;
+    width: 700px;
+    height: 600px;
+    box-shadow: 0px 15px 20px 0px rgba(255,255,255,.2);
+    border-radius: 15px;
+    background: {
+      image:  url("assets/hawai.jpg");
+      blend-mode: multiply;
+      size: cover;
+    }
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    /* cardの後ろの背景をぼかす */
+    backdrop-filter: blur(5px);
+    /* 背景より前にするために */
+    z-index: 1;
+  }
+
+  .my_user_pro{
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,.6);
+  }
+
+
+.bubbles-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 15rem;
+    transform: translateX(-50%);
+  opacity: 0.75;
+  overflow: visible;
+}
+
+.bubbles {
+  width: 100%;
+  height: auto;
+  
+  circle {
+    stroke: white;
+    fill: none;
+  }
+  
+  > g > g:nth-of-type(3n) circle {
+    stroke: #87f5fb;
+  }
+  
+  > g > g:nth-of-type(4n) circle {
+    stroke: #8be8cb;
+  }
+  
+}
+
+.bubbles-large {
+  overflow: visible;
+
+  > g {
+    transform: translateY(1548px);
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  g:nth-of-type(1) {
+    animation: up 6.5s infinite;
+    
+    g {
+      transform: translateX(350px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  
+  g:nth-of-type(2) {
+    animation: up 5.25s 250ms infinite;
+    
+    g {
+      transform: translateX(450px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  
+  g:nth-of-type(3) {
+    animation: up 6s 750ms infinite;
+    
+    g {
+      transform: translateX(700px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  
+  g:nth-of-type(4) {
+    animation: up 5.5s 1.5s infinite;
+    
+    g {
+      transform: translateX(500px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  
+  g:nth-of-type(5) {
+    animation: up 6.5s 4s infinite;
+    
+    g {
+      transform: translateX(675px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(6) {
+    animation: up 5.85s 2.5s infinite;
+    
+    g {
+      transform: translateX(565px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(7) {
+    animation: up 5.25s 3.5s infinite;
+    
+    g {
+      transform: translateX(355px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(8) {
+    animation: up 4.25s 5.5s infinite;
+    
+    g {
+      transform: translateX(205px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  g:nth-of-type(9) {
+    animation: up 6.75s 4.3s infinite;
+    
+    g {
+      transform: translateX(650px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  g:nth-of-type(10) {
+    animation: up 5.3s 1.7s infinite;
+    
+    g {
+      transform: translateX(430px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  g:nth-of-type(11) {
+    animation: up 3.5s 2.5s infinite;
+    
+    g {
+      transform: translateX(400px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  g:nth-of-type(12) {
+    animation: up 5.45s 2.35s infinite;
+    
+    g {
+      transform: translateX(340px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+  g:nth-of-type(13) {
+    animation: up 4.5s 2.24s infinite;
+    
+    g {
+      transform: translateX(390px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+}
+
+.bubbles-small {
+  overflow: visible;
+
+  > g {
+    transform: translateY(1548px);
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  g circle {
+    transform: scale(0);
+  }
+
+  g:nth-of-type(1) {
+    animation: up 5.25s infinite;
+    
+    g {
+      transform: translateX(350px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(2) {
+    animation: up 5.75s infinite;
+    
+    g {
+      transform: translateX(750px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(3) {
+    animation: up 5.25s 250ms infinite;
+    
+    g {
+      transform: translateX(350px);
+    }
+
+    circle {
+      animation: wobble 3s 250ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(4) {
+    animation: up 5.75s 325ms infinite;
+    
+    g {
+      transform: translateX(180px);
+    }
+
+    circle {
+      animation: wobble 3s 325ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(5) {
+    animation: up 6s 125ms infinite;
+    
+    g {
+      transform: translateX(350px);
+    }
+
+    circle {
+      animation: wobble 3s 250ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(6) {
+    animation: up 5.13s 250ms infinite;
+    
+    g {
+      transform: translateX(650px);
+    }
+
+    circle {
+      animation: wobble 3s 125ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(7) {
+    animation: up 6.25s 350ms infinite;
+    
+    g {
+      transform: translateX(480px);
+    }
+
+    circle {
+      animation: wobble 3s 325ms infinite ease-in-out;
+    }
+
+  }
+  
+  g:nth-of-type(8) {
+    animation: up 7s 200ms infinite;
+    
+    g {
+      transform: translateX(330px);
+    }
+
+    circle {
+      animation: wobble 3s 325ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(9) {
+    animation: up 6.25s 233ms infinite;
+    
+    g {
+      transform: translateX(230px);
+    }
+
+    circle {
+      animation: wobble 3s 275ms infinite ease-in-out;
+    }
+
+  }
+  
+  g:nth-of-type(10) {
+    animation: up 6s 900ms infinite;
+    
+    g {
+      transform: translateX(730px);
+    }
+
+    circle {
+      animation: wobble 2s 905ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(11) {
+    animation: up 3.25s 450ms infinite;
+    
+    g {
+      transform: translateX(530px);
+    }
+
+    circle {
+      animation: wobble 3s 280ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(12) {
+    animation: up 2.25s 750ms infinite;
+    
+    g {
+      transform: translateX(175px);
+    }
+
+    circle {
+      animation: wobble 3s 450ms infinite ease-in-out;
+    }
+
+  }
+  g:nth-of-type(13) {
+    animation: up 3.89s 650ms infinite;
+    
+    g {
+      transform: translateX(800px);
+    }
+
+    circle {
+      animation: wobble 2.5s 525ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(14) {
+    animation: up 5.65s 375ms infinite;
+    
+    g {
+      transform: translateX(280px);
+    }
+
+    circle {
+      animation: wobble 3s 305ms infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(15) {
+    animation: up 6.15s 133ms infinite;
+    
+    g {
+      transform: translateX(250px);
+    }
+
+    circle {
+      animation: wobble 3s 205ms infinite ease-in-out;
+    }
+  }
+
+  g:nth-of-type(16) {
+    animation: up 4.15s 103ms infinite;
+    
+    g {
+      transform: translateX(450px);
+    }
+
+    circle {
+      animation: wobble 3s 255ms infinite ease-in-out;
+    }
+  }
+
+  g:nth-of-type(17) {
+    animation: up 5.25s infinite;
+    
+    g {
+      transform: translateX(450px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
+  g:nth-of-type(18) {
+    animation: up 6.8s 250ms infinite;
+    
+    g {
+      transform: translateX(310px);
+    }
+
+    circle {
+      animation: wobble 2.3s 355ms infinite ease-in-out;
+    }
+
+  }
+  
+}
+
+@keyframes wobble {
+  
+  33% {
+    transform: translateX(-50px);
+  }
+  
+  66% {
+    transform: translateX(50px);
+  }
+  
+}
+
+@keyframes up {
+
+  0% {
+    opacity: 0;
+  }
+  
+  10%, 90% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translateY(-1024px);
+  }
+  
+}

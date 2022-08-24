@@ -138,7 +138,7 @@ margin-top: 40px;
 
 }
 nav li:nth-of-type(3) {
-margin-top: 30px;
+margin-top: 40px;
 border: 3px solid #444;
 border-radius: 50%;
 
@@ -154,7 +154,8 @@ text-align: center;
 nav a {
 text-decoration: none;
 color: #333;
-font-size: 20px;
+font-size: 23px;
+font-weight: bold;
 }
 
 
@@ -185,12 +186,14 @@ header a:hover {
   color: #000; 
 }
 
-header h1 {
-  font-size: 50px;
-  color: white;
-  margin-left: 60px;
-  margin-top: 20px;
+header .title_big2{
+  width: 300px;
+  height: 100px;
+  font-size:50px;
+    margin-top: 70px;
+    margin-left: 60px;
 }
+
 .header-list {
   display: flex;
   align-items: center;
@@ -216,6 +219,7 @@ header li {
   margin: 10px;
   padding: 20px;
   background-color:#00acee;
+  border-radius: 15px;
 }
 
 .tweet {
@@ -379,11 +383,11 @@ span{
 
 .card {
   width: 1000px;
-  height: 300px;
+  height: 500px;
   box-shadow: 0px 15px 20px 0px rgba(255,255,255,.2);
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1); /* 真っ白にして透明度を90%にしている */
-  /* はみ出した部分を隠す今回は角を丸くしている */
+  background-image: url("assets/haibi.jpg");
+  background-size: cover;
   overflow: hidden;
   display: flex;
   justify-content: center;
