@@ -534,30 +534,6 @@
     }
 
   }
-
-  g:nth-of-type(15) {
-    animation: up 6.15s 133ms infinite;
-    
-    g {
-      transform: translateX(250px);
-    }
-
-    circle {
-      animation: wobble 3s 205ms infinite ease-in-out;
-    }
-  }
-
-  g:nth-of-type(16) {
-    animation: up 4.15s 103ms infinite;
-    
-    g {
-      transform: translateX(450px);
-    }
-
-    circle {
-      animation: wobble 3s 255ms infinite ease-in-out;
-    }
-  }
   
 }
 
@@ -588,4 +564,25 @@
     transform: translateY(-1024px);
   }
   
+}
+
+
+@media (max-width: 600px){
+   
+  .card {
+    width: 500px;
+  }
+
+  .images {
+   
+    width: 200px;
+    height: 200px;
+  }
+
+  .box_main{
+    
+    width: 500px;
+    
+  }
+
 }

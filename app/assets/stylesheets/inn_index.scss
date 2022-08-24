@@ -829,30 +829,6 @@ g:nth-of-type(14) {
 
 }
 
-g:nth-of-type(15) {
-  animation: up 6.15s 133ms infinite;
-  
-  g {
-    transform: translateX(250px);
-  }
-
-  circle {
-    animation: wobble 3s 205ms infinite ease-in-out;
-  }
-}
-
-g:nth-of-type(16) {
-  animation: up 4.15s 103ms infinite;
-  
-  g {
-    transform: translateX(450px);
-  }
-
-  circle {
-    animation: wobble 3s 255ms infinite ease-in-out;
-  }
-}
-
 }
 
 @keyframes wobble {
@@ -881,5 +857,39 @@ g:nth-of-type(16) {
   opacity: 0;
   transform: translateY(-1024px);
 }
+
+}
+
+@media (max-width: 600px){
+   
+  .card {
+    width: 500px;
+  }
+
+  .images {
+   
+    width: 200px;
+    height: 200px;
+  }
+
+  .contents p{
+    max-width: 140px;
+  }
+
+  .contents h2{
+    font-size: 50px;
+  }
+
+  .box_main{
+    
+    width: 500px;
+    
+  }
+
+  header .title_big2{
+    width: 200px;
+    font-size:25px;
+    
+  }
 
 }
