@@ -326,6 +326,19 @@
 
   }
 
+  g:nth-of-type(14) {
+    animation: up 6.5s 3.5s infinite;
+    
+    g {
+      transform: translateX(420px);
+    }
+
+    circle {
+      animation: wobble 3s infinite ease-in-out;
+    }
+
+  }
+
 }
 
 .bubbles-small {
@@ -544,32 +557,6 @@
     circle {
       animation: wobble 3s 255ms infinite ease-in-out;
     }
-  }
-
-  g:nth-of-type(17) {
-    animation: up 5.25s infinite;
-    
-    g {
-      transform: translateX(450px);
-    }
-
-    circle {
-      animation: wobble 3s infinite ease-in-out;
-    }
-
-  }
-
-  g:nth-of-type(18) {
-    animation: up 6.8s 250ms infinite;
-    
-    g {
-      transform: translateX(310px);
-    }
-
-    circle {
-      animation: wobble 2.3s 355ms infinite ease-in-out;
-    }
-
   }
   
 }
