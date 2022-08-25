@@ -326,7 +326,21 @@ section {
     
     width: 400px;
     height: 350px;
-    
+    margin-top: 50px;
+  
+  }
+  header {
+    width: 100%;
+  }
+
+  header .title_big2{
+    width: 200px;
+    font-size:30px;
+      margin-left: 10px;
+  }
+  
+  .contentsText {
+    margin-bottom: 50px;
   }
   
 }
