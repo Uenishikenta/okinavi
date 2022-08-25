@@ -287,6 +287,19 @@ section {
   box-shadow: 0px 5px 15px 0px rgba(255,255,255,.3);
 }
 
+.images.page1{
+  background-image: url("assets/top_hotel.jpg");
+}
+.images.page2{
+  background-image: url("assets/top_sightseeing.jpg");
+}
+.images.page3{
+  background-image: url("assets/top_girmet.jpg");
+}
+.images.page4{
+  background-image: url("assets/top_post.jpg");
+}
+
 
 //footerはbox_mainのタグに入れ、heightは、適度に合わせる
 //positionはつけれない
@@ -302,3 +315,19 @@ section {
     justify-content: center;
     
   }
+
+  
+@media (max-width: 760px){
+  section{
+    height: 600px;
+  }
+
+  .images {
+    
+    width: 400px;
+    height: 350px;
+    
+  }
+  
+}
+  
