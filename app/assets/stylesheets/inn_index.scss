@@ -874,6 +874,7 @@ g:nth-of-type(14) {
 
   header {
     width: 760px;
+    margin-bottom: 100px;
   }
 
   .tweets-container{
@@ -890,6 +891,21 @@ g:nth-of-type(14) {
     
     width: 300px;
   }
+
+  nav {
+    height: 500px;
+  }
   
+
+  .box_main{
+    
+    width: 750px;
+   
+  }
+
+  
+.box{
+  width: 100%;
+}
 
 }
