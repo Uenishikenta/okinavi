@@ -84,3 +84,9 @@ a:hover{
     margin-left: 50px;
 }
 
+@media (max-width: 760px){
+    .contents_all{
+        width: 600px;
+        height: 900px;
+    }
+  }
