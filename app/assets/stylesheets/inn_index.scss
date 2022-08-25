@@ -866,40 +866,39 @@ g:nth-of-type(14) {
 
 }
 
-@media (max-width: 760px){
+@media (max-width: 900px){
   .card {
-    width: 700px;
+    width: 800px;
     background-size: cover;
   }
 
   header {
-    width: 760px;
+    width: 900px;
     margin-bottom: 100px;
   }
 
   .tweets-container{
-    width: 750px;
-    margin-left: 150px;
+    width: 850px;
   }
 
   .cccontent{
-    width: 300px;
-    height: 250px;
+    width: 400px;
+    height: 300px;
   }
 
   .tweet_right .contents{
     
-    width: 300px;
+    width: 400px;
   }
 
   nav {
-    height: 1000px;
+    height: 800px;
   }
   
 
   .box_main{
     
-    width: 760px;
+    width: 900px;
    
   }
 
