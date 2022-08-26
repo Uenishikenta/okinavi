@@ -84,3 +84,13 @@
       transform: translateX(0);
       }
   }
+
+
+  @media (max-width: 760px){
+    
+    .slider {
+   
+      width: 650px;
+    
+    }
+  }
